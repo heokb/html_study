@@ -63,3 +63,8 @@ footer {
 #popUp button {
     padding:3px 6px; position:absolute;bottom:20px; right:20px;
 }
+
+/* 작은 기계 장치 */
+@media(max-width:550px) {
+    #popUp {width:100%;}
+}
