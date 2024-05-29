@@ -66,5 +66,5 @@ footer {
 
 /* 작은 기계 장치 */
 @media(max-width:550px) {
-    #popUp {width:100%;}
+    #popUp {width:100%; left:0;}
 }
