@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블캡션과 스코프p.66</title>
+</head>
+    <style>
+        table {
+            width:100%; max-width: 500px; margin:auto;
+            border-collapse:collapse; text-align: center;
+        }
+        caption {
+            font-size:1.3rem; padding-bottom: 10px; text-align: left;
+        }
+        td, th {
+            border:1px solid black; /*text-align: center;*/
+        }
+        tr td:nth-child(2) {
+          text-align: center;
+        }
+
+    </style>
+<body>
+    <table>
+        <caption>상품에 따른 상하반기 판매량</caption>
+        <colgroup>
+            <col style="background-color: azure;">
+            <col style="background-color: bisque;">
+            <col style="background-color: gray;">  
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">구분</th>
+                <th scope="col">데스크탑 PC</th>
+                <th scope="col" onclick="smt( '짜장면' , '짬뽕' )">스마트폰</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" onclick="sang('딸기라떼')">상반기 판매수</th>  <!--sang(3)인수-->
+                <td onclick="gg()">2만대</td>
+                <td onclick="oo( 50 , 70)">5만대</td>
+            </tr>
+            <tr>
+                <th scope="row" onclick="ha( 3 , 5 )">하반기 판매수</th>
+                <td>3만대</td>
+                <td>7만대</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="text-align: center;" id="$result">이 부분에 글자가 들어온다</p>
+
+<script>
+    const ss=document.querySelector("tbody tr:first-child :nth-child(2)");
+    const pp=document.querySelector("p");
+ 
+    /* alert ( ss )
+    /* ss.style.background= 'red'; // 해당 셀이 맞는지 확인용 */
+
+    
+    function gg() {
+       /* alert (ss); */
+        pp.innerHTML /*set*/ = ss.innerHTML; /*get*/
+    }
+    function sang( i ) {      //매개변수 sang( i )
+        //alert ( i );
+        pp.innerHTML = i + '는(은) ' + typeof i + '형입니다';
+    }
+
+    function ha ( i , j ) {
+        // alert ( i + j ) //8이 반환된다.
+        pp.innerHTML = '나는 오늘 오후 ' + i + '시에 친구와 중앙로 ' + j + '가에서 만나기로 했다.';
+    }
+
+    function smt ( i , j ) {
+        pp.innerHTML = '오늘은 친구와 ' + i + '과 ' + j + '을 같이 나눠 먹었다.';
+    }
+    function oo ( i , j ) {
+        pp.innerHTML = '올해 목표는 ' + ( i + j ) + '만대 판매입니다.😊'
+    }
+</script>
+
+</body>
+</html>
