@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add event listener</title>
+    <style>
+        * {
+            margin:0; padding:0;box-sizing: border-box;
+        }
+        body {
+            margin:20px;
+        }
+        nav {
+            max-width: 900px; margin: 0 auto ; border:1px solid red;
+        }
+        nav ul {
+            list-style-position: inside; text-align:center;
+        }
+        nav > ul { /*교재p.286*/
+            display: flex; justify-content: space-around;
+        }
+        nav>ul>li {
+            border:1px solid blue; /* flex:1; */ ;background-color: rgb(204, 212, 223);
+            flex-basis: 20%; height: 50px; position:relative;
+        }
+        .mainmenu {
+            background-color: aquamarine; width:60%; display:inline-block; /*히트 범위가 늘어남*/
+        }
+        .submenu {
+            border:1px solid blue; overflow-y: hidden; position:absolute;
+            z-index:1; width: 100%; background-color: rgba(255,255,255, 0.8);
+            padding-top:30px; line-height:200%;
+        }
+
+        /*z인덱스 연습부분*/
+        nav> ul> li:nth-child(2) {
+            z-index:-1;
+        }
+
+        nav > ul > li .submenu {
+            transition:0.5s;
+        }
+        nav > ul > li:hover .submenu {
+            /* height:100px */
+        }
+        /*.mainmenu:hover + .submenu {
+            display:block;
+        }
+        */
+        .submenu li:hover {
+            background-color: beige;
+        }
+
+        /*공지사항 팝업*/
+        div {
+            margin:auto; height:80vh;
+            position:relative; border:5px dashed tomato; max-width: 900px;
+            background-color: blueviolet;
+
+        }
+        #popup {
+            background-color: wheat;
+            width: 300px;
+            padding: 50px; min-height:40vh;
+            position: absolute; left:calc((100% / 2) - 150px);
+
+        }
+        #popup button {
+            padding:9px 9px; position:absolute;
+            bottom: 20px; right: 20px;
+        }
+        div> button {
+            padding:9px 9px; position:absolute;
+            bottom: 20px; right: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" class="mainmenu">메뉴1</a>
+                         <!-- 서브메뉴 -->
+                    <ul class="submenu">
+                        <li><a href="#">메뉴1_1</a></li>
+                        <li><a href="#" class="hit">메뉴1_2</a></li>
+                        <li><a href="#">메뉴1_3</a></li>
+                    </ul>
+                        <!-- 서브메뉴 끝 -->
+            </li>
+            <li><a href="#" class="mainmenu">메뉴2</a>
+                        <!-- 서브메뉴 -->
+                    <ul class="submenu">
+                        <li><a href="#">메뉴2_1</a></li>
+                        <li><a href="#">메뉴2_2</a></li>
+                        <li><a href="#">메뉴2_3</a></li>
+                    </ul>
+                         <!-- 서브메뉴 끝 -->
+            </li>
+            <li><a href="#" class="mainmenu">메뉴3</a>
+                         <!-- 서브메뉴 -->
+                     <ul class="submenu">
+                        <li><a href="#">메뉴3_1</a></li>
+                        <li><a href="#">메뉴3_2</a></li>
+                        <li><a href="#">메뉴3_3</a></li>
+                     </ul>
+                         <!-- 서브메뉴 끝 -->
+            </li>
+        </ul>
+    
+    </nav>
+        <div>
+            <section id="popup">
+                <h2>공지사항</h2>
+                <button type="button" onclick="close1()">닫기</button>
+
+            </section>
+            <button type="button" onclick="show1()">보이기</button> 
+        </div>
+    <script>
+        function close1() {
+            document.getElementById("popup").style.display = "none";
+        }
+        function show1() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        //이벤트 리스너 기능
+        const xx = document.querySelector("hit")
+        xx.addEventListener('click', 
+    </script>    
+</body>
+
+</html>
+
+

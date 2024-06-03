@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교재 p.88 마크업하기/ java로 태그요소 추가</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #layout {
+            max-width: 1000px;
+            margin: auto;
+            border: 5px solid darkgreen;
+            overflow: auto;
+        }
+
+        header {
+            background-color: rgb(89, 151, 89);
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+        }
+
+        h1 {
+            padding: 30px;
+            margin: 0 10px;
+            background-color: lightgray;
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 15px;
+            margin: 0 70px 0 20px;
+            background-color: lightgray;
+        }
+
+        nav>a {
+            width: 70px;
+            text-align: center;
+        }
+
+        main {
+            background-color: rgb(166, 190, 141);
+            display: flex;
+            padding:20px;
+        }
+
+        section {
+            padding: 200px 50px;
+            flex: 2;
+            text-align: center;
+            box-sizing: border-box;
+            margin-right:20px;
+            background-color:rgb(187, 197, 176);
+        }
+
+       /* section ul {
+            text-align: left;
+            border:2px solid gray;
+            list-style-position: inside; */
+        }
+        #right {
+            background-color: rgb(166, 190, 141);
+            flex: 1.5;
+        }
+
+        article {
+            background-color: rgb(180, 163, 140);
+            padding: 80px;
+        }
+
+        aside {
+            background-color: rgb(216, 192, 163);
+            padding: 80px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: rgb(119, 182, 161);
+            padding:10px;
+            padding-left: 100px;
+        }
+        address {
+            background-color: rgb(185, 197, 141);
+            padding:10px;
+            max-width:500px;
+        }
+        p {
+            background-color: rgb(185, 197, 141);
+            margin-top:10px;
+            padding:10px;
+            max-width:500px;
+        }
+
+        /* 0~530px 넓이에서 디자인 적용됨 */
+        @media(max-width:530px){
+            header {flex-direction: column; align-items:flex-start;}
+            nav {margin:10px; width:97% ;}
+            main {flex-direction:column;}
+            section {margin-right: 0; margin-bottom:20px;}
+            footer {padding-left:10px;}
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layout">
+        <header>
+            <h1>반응형 웹</h1>
+            <nav>
+                <a href="#">MENU01</a>
+                <a href="#">MENU02</a>
+                <a href="#">MENU03</a>
+                <a href="#">MENU04</a>
+                <a href="#">MENU05</a>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>콘텐츠 그룹01</h2>
+            </section>
+            <section>
+                <h2>콘텐츠 그룹02</h2>
+            </section>
+            <div id="right">
+                <article>
+                    <h2>주요 기사</h2>
+                </article>
+                <aside>
+                    <h3>광고</h3>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            <address>경기도 부천시 오정고 삼정동 032)674-5685 icoxpub@naver.com</address>
+            <p>COPYRIGHT ⓒ All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        const $h2 = document.querySelector("main section:first-child h2");
+        //alert ($h2);
+        $h2.innerHTML += "<br><b style='font-size:1.2rem; color:red;'>태그가 추가됨</b>"
+
+        const $p = document.createElement('p');
+        //alert ($p);
+        $h2.after($p); //다음요소, 즉 형제요소가 생긴다. before(), after()
+        $p.innerHTML = "형제요소가 추가됨";
+
+
+        const $h3 = document.querySelector("main section:nth-child(2) h2");
+        //alert ($h3);
+        const $div = document.createElement('div');
+        $h3.before($div);
+        $div.innerHTML = '형제요소가 추가됨';
+
+
+        const $pp = document.querySelector("section p");
+        //alert($pp);
+        const $ul = document.createElement("ul");
+        //alert($ul);
+        $pp.after($ul);
+        $ul.innerHTML = "<li>딸기</li><li>바나나</li><li>파인애플</li>";
+    
+    </script>
+</body>
+
+</html>

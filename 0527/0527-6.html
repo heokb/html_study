@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트로 배열객체 array 연습하기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>
+        * {margin:0; padding:0;}
+        body {margin:20px;}
+        section {max-width: 900px; margin:auto; border:2px dashed red; 
+            display:flex; align-items: center; 
+            border-radius:30px; /* transform: rotate(-20deg);*/ box-shadow:-3px -3px 15px red; background-color: brown;}
+        h1 {flex:1; background-color: bisque; padding:30px;   font-family: "Do Hyeon", sans-serif;
+             font-weight: 400; font-style: normal;}
+        ol {flex:2; background-color: aqua; list-style-position: inside; padding:20px; border-radius:30px;}
+        /* section:hover {transform: rotate(0deg); transition: 0.5s; cursor:pointer;} */
+        p {flex:1; background-color:aquamarine;}
+       
+    </style>
+</head>
+<body>
+    <section>
+        <h1>반응형 웹퍼블리싱 학습 순서</h1>
+        <ol>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>exercise</li>
+        </ol>
+        <ol>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>exercise</li>
+        </ol>
+        <p>11111</p>
+        <p>11111</p>
+        <p>11111</p>
+    </section>
+
+    <script>
+        //array 객체를 선언하고 5개의 값을 할당하였고,
+        const myFruits = ["딸기", "포도", "수박", "오렌지", "바나나"];
+        // console.log(myFruits);
+        // console.log(typeof myFruits);
+        // console.log("오늘은 귀가길에 " + myFruits[1] + "를 살 것이다.");
+        document.querySelectorAll('p')[1].innerHTML = myFruits;
+        document.querySelector('p:last-of-type').innerHTML = myFruits[2];
+        // document.querySelector('p:nth-of-type(3)').innerHTML = myFruits[2];
+
+        let lotto = [35, 44, 45, 13, 7, 5];//배열(array)
+        console.log(typeof lotto);
+        document.querySelector('p').innerHTML = lotto[3];
+
+    </script>
+    
+</body>
+</html>

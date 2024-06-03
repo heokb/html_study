@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트로 요소에 컨텐츠 넣기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>
+        * {margin:0; padding:0;}
+        body {margin:20px;}
+        section {max-width: 900px; margin:auto; border:2px dashed red; 
+            display:flex; align-items: center; 
+            border-radius:30px; /* transform: rotate(-20deg);*/ box-shadow:-3px -3px 15px red; background-color: brown;}
+        h1 {flex:1; background-color: bisque; padding:30px;   font-family: "Do Hyeon", sans-serif;
+             font-weight: 400; font-style: normal;}
+        ol {flex:2; background-color: aqua; list-style-position: inside; padding:20px; border-radius:30px;}
+        /* section:hover {transform: rotate(0deg); transition: 0.5s; cursor:pointer;} */
+        p {flex:1; background-color:aquamarine;}
+       
+    </style>
+</head>
+<body>
+    <section>
+        <h1>반응형 웹퍼블리싱 학습 순서</h1>
+        <ol>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>exercise</li>
+        </ol>
+        <ol>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>exercise</li>
+        </ol>
+        <p>11111</p>
+        <p>11111</p>
+        <p>11111</p>
+    </section>
+
+    <script>
+        let x = 5; //변수설정
+        let y = 3; //변수설정
+        x = 20; //재할당
+        document.querySelector('p').innerHTML = x + y;
+        document.querySelector('h1').style.background = 'gold';
+        document.querySelectorAll('ol')[1].style.background = 'tomato';
+        document.querySelectorAll('p')[2].innerHTML = y;
+        document.querySelectorAll('p')[2].style.border = '5px dashed blue';
+        // document.querySelectorAll('ol li')[3].style.border = '3px dotted black';
+        // document.querySelectorAll('ol:last-of-type li')[2].style.background = 'yellow';
+        // document.querySelectorAll('ol li')[7].style.border = '3px dotted black';
+        console.log (5 > 5);
+        console.log (x < y);
+        console.log (x >= y);
+
+        x++; //'x++' 은 'x=x+1' 와 같다.
+        console.log (x);
+        console.log (y);
+    </script>
+    
+</body>
+</html>

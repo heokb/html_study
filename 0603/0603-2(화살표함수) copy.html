@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표함수 연습</title>
+</head>
+<body>
+    <h2>마우스를 살짝 대세요.</h2>
+    <main>미션부분입니다.<br>
+    이 부분에 마우스를 살짝 대면 '라인컴퓨터아트학원' 글자가 나오게 작업하세요.</main>
+    <script>
+        const a1 = 25;
+        const a2 = 37;
+        const $h2 = document.querySelector('h2');
+
+        //h2에 마우스를 갖다대는 증상을 감지하면, ar()함수를 호출한다.
+        $h2.addEventListener("mouseover", () => a4() );
+
+        a4 = () => $h2.innerHTML = '화살표함수 연습중';
+
+
+        
+
+        const $main = document.querySelector('main');
+
+        $main.addEventListener("mouseover", ()=>l1());
+        l1= () => $main.innerHTML = '라인컴퓨터학원';
+
+
+
+
+
+    </script>
+</body>
+</html>
