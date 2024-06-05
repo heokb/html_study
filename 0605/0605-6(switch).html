@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펼침메뉴를 이용한 값 전송하기 p.344</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        select {
+            padding:3px 10px; background-color: honeydew;
+            border-radius:10px; border:1px solid orange;
+        }
+        p {
+            border:1px solid navy;
+            width:200px;
+            background-color:antiquewhite;
+            padding:3px 10px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>⚾🏏야구장 입장료</h3>
+    <select>
+        <option>선택하세요</option>
+        <option value="1">아동</option>
+        <option value="2">청소년</option>
+        <option value="3">성인</option>
+    </select>
+    <p id="p1">얼마?</p>
+    <h3>🍎🍓🍍과일선택</h3>
+    <select id="fr">
+        <option>선택하세요</option>
+        <option>사과</option>
+        <option>딸기</option>
+        <option>파인애플</option>
+    </select>
+    <p id="p2">얼마?</p>
+
+    <script>
+        const x = document.querySelector('select');
+        x.addEventListener("change",()=>zz());
+
+        zz = () => {
+            // alert(x.value);
+            let y = x.value;
+            switch (y) {
+                case "1": y= "아동은 무료"; break;
+                case "2": y= "청소년은 2,000원"; break;
+                default: y= "성인은 3,000원"; 
+            }
+            document.querySelector('#p1').innerHTML=y;
+        }
+
+
+
+
+        const y = document.querySelector('#fr');
+        y.addEventListener("change",()=>cc());
+
+        cc = () => {
+            // alert(y.selectedIndex); // [0,1,2,3]
+            let i = y.selectedIndex ;  // [0,1,2,3]
+            let z = y[i].innerHTML ;   // y요소의 선택된 항목의 인덱스번호가 있는 요소의 글자
+            switch (i) {
+                case 1:  z+= "는 1,000원"; break;
+                case 2:  z+= "는 2,000원"; break;
+                default: z+= "은 3,000원";
+            }
+            document.querySelector('#p2').innerHTML=z;
+        }
+        
+    </script>       
+</body>
+</html>
+
+
+
+
+

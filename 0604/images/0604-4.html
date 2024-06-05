@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p.340</title>
+</head>
+<body>
+    <p>이곳에 결과를 표시합니다.</p>
+    <aside></aside>
+    <script>
+        //프롬프트로 '오늘은 딸기, 사과, 수박이 준비되었습니다. 무엇을 드릴까요?'
+        //딸기 => 네, 2500원 결제를 도와드리겠습니다.
+        //사과 => 네, 3000원 결제를 도와드리겠습니다.
+        //수박 => 네, 3500원
+        //파인애플 => 꺼져
+
+        // let fruit = prompt("딸기, 사과, 수박",'')
+        // let price = ''; 
+        // if (fruit=="딸기") {
+        //     price= "네, 2,500원 결제를 도와드리겠습니다.";
+        // } else if (fruit=="사과") {
+        //     price= "네, 3,000원 결제를 도와드리겠습니다.";
+        // } else if (fruit=="수박") {
+        //     price= "네, 3,500원 결제를 도와드리겠습니다.";
+        // } else {
+        //     price="꺼져";
+        // }
+
+        // document.querySelector('p').innerHTML= price; 
+
+
+        // let money = prompt("현재 얼마 있습니까?", '')
+        // let pp = 0;
+        // if (money>=2000 && money<2500) {
+        //     pp="딸기 드릴게요."
+        // } else if (money>=2500 && money<3000) {
+        //     pp="포도 드릴게요."
+        // } else if (money>=3000 && money<10000) {
+        //     pp="수박 드릴게요."
+        // } else if (money>10000) {
+        //     pp="다 드릴게요."
+        // } else {
+        //     pp="꺼져."
+        // }
+        // document.querySelector('aside').innerHTML=pp;
+
+
+        let a = prompt("숫자 입력", '')
+        let b = prompt("숫자 입력", '')
+        let c = prompt("숫자 입력", '')
+        let d = '';
+        if (a>=b && a>=c) {
+            d=a;
+        } else if (b>=a && b>=c) {
+            d=b;
+        } else {
+            d=c;
+        }
+        document.querySelector('aside').innerHTML=d;
+
+
+
+
+
+
+    </script>    
+</body>
+
+</html>

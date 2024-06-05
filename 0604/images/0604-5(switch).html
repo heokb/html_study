@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p.344</title>
+</head>
+<body>
+    <h3></h3>
+    <script>
+        let subject = prompt("수강 과목은?",'');
+        subject = subject.toUpperCase(); //대문자 일괄 적용
+        if (subject=="자바스크립트") {
+            subject="JAVASCRIPT";
+        } 
+        switch (subject) {
+            case 'HTML' :
+                subject += '은 1학점입니다.';
+                break;
+            case 'CSS' :
+                subject += '는 1학점입니다.';
+                break;
+            case 'JAVASCRIPT' :
+                subject += '는 3학점입니다.';
+                break;
+            default :
+                subject += '해당 과목이 없습니다.';
+        }
+        document.querySelector('h3').innerHTML = subject;
+
+
+
+
+        // let classificaion = prompt('아동,청소년, 성인 중 선택 입력','');
+        // switch (classification) {
+        //     case '아동':
+        //         classificaion += ': 입장료 무료';
+        //         break;
+        //     case '청소년':
+        //         classification += ': 입장료 2,000원';
+        //         break;
+        //     case '성인':
+        //         classification += ': 입장료 5,000원';
+        //         break;
+        //     default :
+        //         classification += '입력 값을 다시 확인하세요.';
+        // }        
+    </script>
+</body>
+
+</html>

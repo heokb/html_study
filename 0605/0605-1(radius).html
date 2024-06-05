@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p.206</title>
+    <style>
+        h2 {
+            display: none;
+        }
+
+        section {
+            max-width: 1500px;
+            margin: auto;
+            border: 2px solid skyblue;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin: 10px;
+        }
+        div:nth-of-type(1) {
+            background-color: red;
+            border-radius: 100px; /*50%*/
+        }
+        div:nth-of-type(2) {
+            width:400px;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 200px;
+        }
+        div:nth-of-type(3) {
+            border-top-left-radius: 200px; /*100%*/
+        }
+        div:nth-of-type(4) {
+            width:400px;
+            border-radius: 70px 30px; /*위왼 위오 두군데의 둥글기만 설정해도 아오 아왼에 반복됨.*/
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>반달 부채꼴 만들기 </h2>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java script 연습(p.333)</title>
+</head>
+    <p>3</p>
+    <script>
+        let x=5;
+        let y=3;
+        let z="5";
+        console.log(x == y);
+        console.log(x == z);
+        console.log(x === z);
+
+        const $p = document.querySelector('p');
+        console.log(y == $p.innerHTML);
+        console.log(y === $p.innerHTML);
+
+        y++;
+        console.log(y);
+        $p.innerHTML += 1;
+        console.log($p.innerHTML);
+
+        let pp = Number ($p.innerHTML);   //number("31")하여 연산가능 숫자가 됨.
+        pp++;                             //31+1
+        console.log(pp);                  //32
+        $p.innerHTML = pp;                //32
+
+    </script>
+</body>
+</html>
