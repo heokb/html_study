@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for...of문 (p.391)</title>
+</head>
+<body>
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        const city = ["서울","대전","대구","부산"];
+        
+
+        //for...in (인덱스 번호를 get)
+        for (const i in city) {
+            console.log(i); //[0,1,2,3]
+        }
+
+        //for...of (항목 내용을 get)
+        for (const i of city) {
+            console.log(i); //["서울","대전","대구","부산"]
+        }
+
+    </script>
+</body>
+</html>

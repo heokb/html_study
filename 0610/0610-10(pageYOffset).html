@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 pageYOffset</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 200vh;
+            background-image: linear-gradient(lightgray, lightblue, lightgreen);
+        }
+        h1 {
+            position: fixed;
+            background-color: chocolate;
+            border:10px solid red;
+            padding: 30px;
+            width: 600px;
+            text-align: center;
+            left:calc((100% - 650px) / 2);
+            top: 500px;
+            border-radius: 100px 100px 0 0;
+            transition:3s;
+        }
+        h1.up {
+            top: 0;
+            border-radius: 0 0 100px 100px;
+            border: 10px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>스크롤</h1>
+
+    <script>
+        const $h1 = document.querySelector('h1'); //객체형 변수
+        window.addEventListener('scroll', () => change());
+
+        change = () => {
+            let i = window.pageYOffset;  //재할당 가능성
+            // console.log(i);  //콘솔창에 숫자가 나타나면 정상이다.
+            i= Math.round(i); //교재 p.393 Math 객체의 주요 method.
+            // console.log(i);
+
+            if (i > 100) {
+                    $h1.classList.add('up');
+                } else {
+                    $h1.classList.remove('up');
+                }
+            }
+        
+    </script>
+</body>
+</html>

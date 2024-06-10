@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach 와 DOM (p.391)</title>
+</head>
+<body>
+    <ol>
+        <li>2500원</li>
+        <li>4700원</li>
+        <li>3300원</li>
+        <li>5200원</li>
+    </ol>
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        const x1 = document.querySelector('ol');
+        const x2 = document.querySelectorAll('ol li');   
+        const y = document.querySelector('footer');
+
+        let sum = 0;
+        x2.forEach( (i) => {
+            sum += parceInt(i.innerText);
+        });
+        y.innerHTML = sum;
+    </script>
+</body>
+</html>

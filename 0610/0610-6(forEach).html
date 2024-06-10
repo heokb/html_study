@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach 와 DOM (p.391)</title>
+</head>
+<body>
+    <ol>
+        <li>2500원</li>
+        <li>4700원</li>
+        <li>3300원</li>
+        <li>5200원</li>
+    </ol>
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        const x = document.querySelectorAll('ol li');
+        const y = document.querySelector('footer');
+
+
+        x.forEach(function ( i ) {
+            // console.log( i );                 //<li>..<li> 4회반복
+            // console.log( i.innerHTML );       //2500원, 4700원, 3300원, 5200원
+
+            const z = i.innerText;
+            y.innerHTML += '<br>' + z; //footer에 표시
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach (p.391)</title>
+</head>
+<body>
+
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        const num = ["딸기", "사과", "수박"];
+        num.forEach(function (x, y, z){
+            console.log( x );               //딸기 사과 수박 (num배열의 값)
+            // console.log( y );            //0 1 2 (num배열의 index 번호)
+            // console.log( z );            //["딸기", "사과", "수박"] (num배열 자신)
+        });
+    </script>
+</body>
+</html>

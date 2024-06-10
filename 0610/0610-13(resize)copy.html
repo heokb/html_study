@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤내리면 길어진다</title>
+    <style>
+        body {
+            height: 200vh;
+            background-image: linear-gradient(yellowgreen, yellow, orange);
+        }
+        div {
+            width: 20px;
+            height: 50px;
+            background-color: cadetblue;
+            padding: 10px;
+            border-radius: 10px;
+            position: fixed;
+            transition: 2s;
+            overflow: hidden;
+        }
+        div.long {
+            width:700px;
+        }
+        div nav {
+            display:flex; justify-content: flex-start; flex-wrap:wrap;
+            width:450px; margin-left:50px;
+        }
+        nav a {
+            padding:5px 20px; background-color: black; color:white;
+            font-weight:bold; text-decoration: none; margin:5px; 
+            width:100px; height:30px;
+        } 
+        
+    </style>
+</head>
+<body>
+    <h3>스크롤에 따른 디자인 변화</h3>
+    <div>
+        <nav>
+            <a href="https://naver.com" target="_blank">네이버</a>
+            <a href="https://apple.com">애플</a>
+            <a href="https://adobe.com">어도비</a>
+        </nav>
+    </div>
+    
+
+    <script>
+        const x = document.querySelector('div')
+
+        window.addEventListener('scroll' , ()=>lo());
+
+        lo = () => {
+            let y = window.pageYOffset;
+
+            if (y > 100) {
+                x.classList.add('long');
+            } else {
+                x.classList.remove('long');
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for...of문 (p.391)</title>
+</head>
+<body>
+    <ol>
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+    </ol>
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        const city = document.querySelectorAll('ol li');
+        const f = document.querySelector('footer');
+        
+
+        // //for...in (인덱스 번호를 get)
+        // for (const i in city) {
+        //     console.log(i); //[0,1,2,3]
+        //     f.innerText = i;
+        // }
+
+        //for...of (항목 내용을 get)
+        let x = "";
+        for (const i of city) {
+            console.log(i); //["서울","대전","대구","부산"]
+            x += i.innerText + ', ';
+        }
+        f.innerText = x;
+
+    </script>
+</body>
+</html>
