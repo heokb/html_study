@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 내리면 길어진다.</title>
+    <style>
+        body {height: 200vh;background: linear-gradient(skyblue, yellowgreen,pink);}
+        div
+        {
+            width: 0px;background-color: pink;padding:10px;
+            border-radius: 20px; position: fixed; 
+            transition: 2s;overflow: hidden;
+        }
+        div.long {width: 100%;box-sizing: border-box;}
+        
+        div nav { /*opacity: 0;*/ display: flex;width: 450px;}
+        div nav a 
+        {
+            padding: 10px; background: black; color: white; border-radius: 20px;
+            text-align: center; margin: 10px; text-decoration: none; width: 100px;height: 30px;
+        }
+       /* div nav:hover {opacity: 1;}*/
+        /*div:hover {width:100%;}*/
+    </style>
+</head>
+<body>
+    <h3>스크롤에 따른 디자인 변화</h3>
+    <p>윈도넓이 표시하는 곳</p>
+    <div>
+        <nav>
+        <a href="https:naver.com">네이버</a>
+        <a href="https:naver.com">구글</a>
+        <a href="https:naver.com">애플</a>
+        </nav>
+    </div>
+    
+    <script>
+        let x = document.querySelector('div');
+           // x.addEventListener('mouseenter',()=>x.classList.add('long'));
+           // x.addEventListener('mouseleave',()=>x.classList.remove('long'));
+           window.addEventListener('scroll',()=>ck());
+          
+
+
+          ck = () =>
+           {
+            let i = window.pageYOffset;
+                i = Math.round(i);
+                console.log(i);
+            if(i>500)
+            {
+                x.classList.add('long');
+            }
+            else
+            {
+                x.classList.remove('long');
+            }
+           }
+
+           let xx = window.innerWidth;
+           if(xx <=550)
+           {
+            x.classList.add('long');
+           }
+
+           let x1 = document.querySelector('p');
+    let x = document.querySelector('div');
+       // x. addEventListener('mouseenter',()=>x.classList.add('move'));
+       // x. addEventListener('mouseleave',()=>x.classList.remove('move'));
+    
+    window.addEventListener('resize', ()=>ck());
+
+
+// 넓이로 하는법 ////////////////////////////////////////////////////////////////////////
+
+    /*
+
+    ck = () =>
+    {
+        //console.log(window.innerWidth);
+        let a = window.innerWidth; //window.pageYOffset 이랑 같이 넓이를 수치로 표시
+        if(a>500)
+        {
+            x.classList.add('move');
+        }
+        else
+        {
+            x.classList.remove('move');
+        }
+    } */
+      
+    </script>
+</body>
+</html>

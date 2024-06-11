@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>둥근테두리, 부채꼴모양 만들기</title>
+    <style>
+        h2 {display: none;}
+        section 
+        {
+            max-width: 1400px;margin: auto;border: 1px solid violet;display: flex;
+            justify-content: center;flex-wrap: wrap; 
+        }
+        div {width: 200px;height: 200px;background: plum;margin: 10px;}
+        div:nth-child(2) {background:pink;border-radius: 50%;} /*h2가 있어서 div가 2번째가 첫번째 블록이다*/
+        div:nth-child(3)
+         {
+            background: rgb(252, 217, 223);width:400px;border-top-left-radius: 200px;
+            border-top-right-radius: 200px;
+        }
+        div:nth-child(4) {background: rgb(252, 217, 223);border-top-left-radius: 200px;}
+        div:nth-child(5) 
+        {
+            background: rgb(252, 217, 223);width: 400px;border-radius: 80px 20px;
+            /*border-top-left-radius: 80px; border-bottom-right-radius: 80px;*/
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <section>
+        <h2>반달이나 부채꼴모양 만들기</h2>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+    </section>
+</body>
+</html>

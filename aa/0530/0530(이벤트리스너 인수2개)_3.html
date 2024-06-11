@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 이벤트리스너 인수2개</title>
+
+    <style>
+        table 
+        {
+            width:100%; max-width:600px; border-collapse: collapse;margin: auto;
+            
+        }
+
+        caption {font-size: 1.3rem;padding-bottom:10px;text-align: left;}/*30%정도가 커짐*/
+
+        th,td {border:1px solid black; text-align: center; padding: 5px;}
+
+        /*tbody tr :nth-child(2) {text-align: center;}/*2만원만 가운데 정렬*/
+        /*tfoot tr :nth-child(2) {text-align: center;}/*3만원만 가운데 정렬*/
+
+      /*  tr td:first-of-type {text-align: center;}*/
+        
+    </style>
+</head>
+<body>
+    <table>
+        <caption>상품에 따른 상하반기 판매량</caption>
+        <colgroup>
+            <col style="background-color: aquamarine;">
+            <col style="background-color: rgb(140, 127, 255);">
+            <col style="background-color: rgb(240, 127, 255);">
+        </colgroup>
+        <thead>
+            <tr>
+                 <th>구분</th>
+                 <th>데스크탑PC</th>
+                 <th onclick="ph('짜장면','짬뽕')">스마트폰</th>
+             </tr>
+        </thead>
+        <tbody>
+            <tr>
+                 <th scope="row" onclick="sang('딸기라떼')">상반기 판매수</th>
+                 <td id="s2" onclick="gg()">2만대</td>
+                 <td onclick="oo(50,70)">5만대</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+                 <th scope="row" onclick="hang(3,5)">하반기 판매수</th>
+                 <td id="sam">3만대</td>
+                 <td id="vivi">7만대</td>
+        </tr>
+        </tfoot>
+    </table>
+    <p style="text-align: center;">이부분에 글자가 들어온다.</p>
+    <script>
+        
+      //첫번째 
+       const a = document.querySelector('#s2');
+       // 두번째 const a = document.querySelector('tbody tr :nth-child(2)');
+        const pp = document.querySelector('p');
+        a.style.background = 'red';
+
+    
+
+
+        function gg()
+        {
+            //alert(a);
+            pp.innerHTML = a.innerHTML; //2만원을 누르면 p태그에 2만원이 들어온다.
+        }
+
+        function sang(i) //3을 넣는게 아니라 매개변수(parmeter)를 넣는다. 3은 인수
+        {
+            //alert(i);//3을 입력해서 3이 나온다.
+            pp.innerHTML=i + "는(은) " + typeof i + " 형입니다";
+        
+        }
+        function hang(i, j)
+        {
+            //alert(i+j); 8이 나온다.
+            pp.innerHTML= "나는 오늘 오후" + i + "시에 친구와 중앙로" + j + "만나기로 했다.";
+        }
+        function ph(i, j)
+        {
+            
+            pp.innerHTML= "오늘은 친구와 " + i + "과 " + j + "을 나눠 먹었다.";
+        }
+        function oo(i, j)
+        {
+            pp.innerHTML= "올해 목표는 "+ (i+j) +"만대 판매입니다.";
+        }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+
+
+        vii(30,20);
+        const b = document.querySelector('#vivi');
+        b.addEventListener("click", function() {  vii(30,20);   });//인수를 받아들이 수 없어서 function을 안에 씀
+
+        function vii(i,j)
+        {
+            alert(i+j);
+            //pp.innerHTML=(i+j) + "😋🍔🥩";
+        }
+
+        const c = document.querySelector('#sam');
+        c.addEventListener("click", function() { susu('딸기','바나나');    });
+
+        function susu(i,j)
+        {
+            pp.innerHTML = "🍓" + i + "🍌" + j;
+        }
+
+
+    </script>
+    
+</body>
+</html>

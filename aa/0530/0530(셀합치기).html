@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>셀합치기</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        table 
+        {
+            width: 100%; max-width: 500px; margin: auto;
+            border-collapse: collapse; /*셀과 셀 사이를 좁히기 위해*/
+        }
+        td,th{border:1px solid #000;padding:5px 0 8px;} /*td와 th의 검정색으로 선을 그어준다*/
+        .c1{background: #ff0;width:50%;}
+        .c2{background: #0ff;width:50%;}   
+
+      /* thead>tr :nth-child(1) {background: fuchsia;}*/
+
+
+
+        body {
+     font-family: "Nanum Pen Script", cursive;
+     font-weight: 400;
+    font-style: normal;
+            }
+
+    tbody td {text-align: center;}
+
+/*
+1. th태그는 굵은 글씨 및 중앙정렬,  td는 없다.
+2.colspan은 가로 합치기 lowspan은 세로합치기*/
+
+    </style>
+</head>
+<body>
+    <table>
+        <colgroup>
+            <col class="c1"> <!--col은 셀의 행의 개수(세로) 2개라 2개만 씀 -->
+            <col class="c2"> 
+        </colgroup>
+        <thead>
+            <tr> <!--첫번째 1줄-->
+                <th colspan="2">교과목+점수</th> <!-- 테이블 첫번째 행을 나타냄-->
+                <!--<th></th>--> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr><!--두번째줄 -->
+                <th rowspan="2">HTML + CSS</th>
+                <td id="s1">93점</td> <!-- 각 열을 나타냄-->
+            </tr>
+            <tr><!--세번째줄 -->
+                <!--<th>CSS</th>-->
+                <td id="s2">92점</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr><!--네번째줄 -->
+            <th>평균</th>
+            <td rowspan="2" id="s3"></td>
+        </tr>
+        <tr><!--다섯번째줄 -->
+           <th>평균</th>
+           <!-- <td></td>-->
+        </tr>
+        <tr>
+            <th colspan="2">연습중</th>
+            <!--<td>작업중</td>-->
+        </tr>
+        </tfoot>
+    </table>
+
+    <script>
+    
+      
+
+    </script>
+</body>
+</html>

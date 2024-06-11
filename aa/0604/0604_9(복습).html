@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 과 switch문</title>
+    <style>
+        body {/*background: url(images/dog.png) repeat-x center center/cover fixed; height: 200vh;*/
+              background-image:url(images/flower.png),url(images/dog.png);
+              background-repeat: repeat-x, repeat-y;/*x방향으로 반복, y방향으로 반복*/
+              background-attachment: fixed,scroll;/*고정, 스크롤 할때 같이 내려감*/
+              background-position: center center, top center; /*x축 y축을 의미*/
+              background-size: cover,200px; /*cover는 화면 꽉참*/
+              height: 200vh;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get">
+        <label for="n">학점입력:</label><input type="text" id="n" required>
+        <button>장바구니담기</button>
+    </form>
+    <p style="background: skyblue;width: 300px;">결과가 표시되는 곳</p>
+
+    <script>
+        let x = document.querySelector('#n');
+        let x1 = document.querySelector('p');
+        let y = document.querySelector('button');
+                y.addEventListener('click',() => zz());
+
+        zz = () => 
+        {
+           let xx = x.value;
+           // alert(x);
+            switch(xx)
+            {
+                case '사과':
+                    xx += '는 2000원 입니다.'; break;
+                case '딸기':
+                    xx += '는 2500원 입니다.'; break;
+                case '바나나':
+                    xx += '는 1500원 입니다.'; break;
+                default :
+                    xx += '는 품절되었습니다';    
+
+            }
+            x1.innerHTML = xx;
+        }
+        
+    </script
+</body>
+</html>

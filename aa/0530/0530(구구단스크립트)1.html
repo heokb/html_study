@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        table 
+        {
+            width: 100%; max-width: 500px; margin: auto;
+            border-collapse: collapse; /*셀과 셀 사이를 좁히기 위해*/
+        }
+        td,th{border:1px solid #000;} /*td와 th의 검정색으로 선을 그어준다*/
+        .c1{background: #ff0;width:50%;}
+        .c2{background: #0ff;width:50%;}   
+
+      /* thead>tr :nth-child(1) {background: fuchsia;}*/
+
+
+
+        body {
+     font-family: "Nanum Pen Script", cursive;
+     font-weight: 400;
+    font-style: normal;
+}
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <colgroup>
+            <col class="c1"> <!--col은 셀의 개수 2개라 2개만 씀 -->
+            <col class="c2"> 
+        </colgroup>
+        <thead>
+            <tr> <!--첫번째 1줄-->
+                <th>교과목</th> <!-- 테이블 첫번째 행을 나타냄-->
+                <th>점수</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr><!--두번째줄 -->
+                <th>HTML</th>
+                <td id="s1"></td> <!-- 각 열을 나타냄-->
+            </tr>
+            <tr><!--세번째줄 -->
+                <th>CSS</th>
+                <td id="s2">92점</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr><!--네번째줄 -->
+            <th>평균</th>
+            <td id="s3"></td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        
+        const ss=document.getElementById('s3');
+        
+            for(let i=2;i<=9;i++)
+            {   
+                
+                
+                ss.innerHTML += ( i + "단<br>");
+                for(let z=1;z<=9;z++)
+                {
+                ss.innerHTML += ( i + "*" + z + "=" + (i * z) + "<br>");
+                if(z==9)
+                {
+                    ss.innerHTML += "<br>";
+                }
+                }
+                
+            }
+
+        
+
+    </script>
+</body>
+</html>

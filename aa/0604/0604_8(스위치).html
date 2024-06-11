@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 과 switch문</title>
+</head>
+<body>
+    <form action="#" method="get">
+        <label for="n">학점입력:</label><input type="text" id="n" required>
+        <button>장바구니담기</button>
+    </form>
+    <p>결과가 표시되는 곳</p>
+    <script>
+        let x = document.querySelector('#n');
+        let x1 = document.querySelector('p');
+        let y = document.querySelector('button');
+                y.addEventListener('click',() => zz());
+
+        zz = () => 
+        {
+           let xx = x.value;
+           // alert(x);
+            switch(xx)
+            {
+                case '사과':
+                    xx += '는 2000원 입니다.'; break;
+                case '딸기':
+                    xx += '는 2500원 입니다.'; break;
+                case '바나나':
+                    xx += '는 1500원 입니다.'; break;
+                default :
+                    xx += '는 품절되었습니다';    
+
+            }
+            x1.innerHTML = xx;
+        }
+        
+    </script>
+</body>
+</html>

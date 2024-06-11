@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 과 if문</title>
+</head>
+<body>
+    <form action="#" method="get">
+        <label for="n">학점입력:</label><input type="number" min="0" max="100" id="n" required>
+        <button>확인하기</button>
+    </form>
+    <p>결과가 표시되는 곳</p>
+    <script>
+        let x = document.querySelector('#n');
+        let x1 = document.querySelector('p');
+        let y = document.querySelector('button');
+                y.addEventListener('click',() => zz());
+
+        zz = () => 
+        {
+            let xx = x.value;
+           // alert(x);
+           if(xx>=60){xx = "통과했습니다.";}
+           else{xx = "여름방학에 재수강하세요.";}
+            x1.innerHTML = xx;
+
+            
+        }
+    </script>
+</body>
+</html>

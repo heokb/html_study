@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>이곳에 결과를 표시:</p>
+    <aside>교재342페이지 실험결과를 표시하는 곳!</aside>
+    
+    <script>
+        let v= document.querySelector('p');
+        let vv = document.querySelector('aside');
+        
+
+
+        let age = 20;
+        let fee = '';
+        if( age < 13)
+        {
+            fee = '2000원';
+        } 
+        else if(age >=13 && age <20)
+        {
+        fee = '4000원';
+        }
+        else
+        {
+            fee = '6000원';
+        }
+        
+
+        v.innerHTML = fee;
+
+        let agee = prompt('나이 입력','');
+        let feee = '';
+        if(agee <13 || agee>=65)
+            {
+                feee = '2000원';
+            } 
+        else if(agee >= 13 && agee < 20)
+        {
+            feee = '4000원';
+        }
+        else
+        {
+            feee = '6000원';
+        }
+
+        vv.innerHTML = feee;
+
+    </script>
+    
+</body>
+</html>

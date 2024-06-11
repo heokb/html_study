@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연습</title>
+</head>
+<body>
+
+    <p>3</p>
+    <script>
+        let x =[5,3];
+        let y = "5";
+        let p1 = document.querySelector('p');
+
+        console.log(x[0]== x[1]);
+        console.log(x[0]== y);
+        console.log(x[0]=== y); //5는 같지만 type이 달라 false! y의 type이 number가 아니다. 
+        console.log(x[1]==p1.innerHTML);
+        console.log(y === p1.innerHTML);
+
+        x[1]++; // 4
+        console.log(x[1]); //4출력
+        let pp =Number(p1.innerHTML);
+        p1.innerHTML += 1; // 
+        
+        console.log(p1.innerHTML);// "3" + "1"= "31";
+       // let pp =Number(p1.innerHTML); //31 타입을 숫자로 변경후 
+        pp++; //31이 32가 되고 
+        console.log(pp); //32출력
+        p1.innerHTML = pp;
+    </script>
+    
+</body>
+</html>

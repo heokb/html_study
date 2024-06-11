@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상단메뉴(메인/하위메뉴) 슬라이딩구현, 스크립트 함수 제어하기</title>
+    <style>
+       * {margin:0; padding:0;}
+       img {max-width:100%;}
+
+        #layout {max-width:900px; margin:auto; border:1px solid red;position: relative;}
+
+        /*상단*/
+        header 
+        {
+            height:100px;background: rgb(198, 217, 252);border:1px solid greenyellow;
+            z-index: 1; position: relative; 
+        }
+        /*메뉴*/
+        nav:not(.subMenu)   {margin-top:30px;} /*nav의 마진 탑을 30px을 주는데 서브메뉴는 빼고 줘라*/
+        nav ul {display: flex;list-style: none;justify-content:space-around;}
+        nav li {/*border:1px solid red;*/width:100px;/*flex: 1;*/}
+        nav a  {display: block;} /*서브메뉴는 인라인 레벨이였는데 블록 레벨을 해서 아래로 정렬됨*/
+
+        
+        /*메인*/
+        main {height:70vh;background: darkkhaki;border:1px solid darkblue;} /*100%중에 70%을 잡아 먹는다*/
+        main img {height: 100%;} /*main의 height의 값이 있어야 img가 100%로 찬다.*/
+
+        /*메인메뉴*/
+        .mainMenu {text-align: center;background:skyblue;border-radius: 20px;}
+        
+        /*서브메뉴*/
+        .subMenu 
+        {
+            height: 0; /*display: none;*/ transition: 0.5s; overflow: hidden;
+            background: rgba(255,255,255,0.85);position: relative;
+        }
+        nav li:hover .subMenu{height: 120px;/*display: block;*/}/*메인 메뉴에 손가락을 데면 형제인 한명 서브메뉴만 호버기능 전부 하려면 ~로 표시 display:none,block은 transition 기능이 안됨*/
+        .subMenu a:hover {background: rgb(181, 238, 226);}
+
+        /*하단*/
+        footer {height:100px;background: rgb(240, 221, 209);border:1px solid deeppink;}
+        
+        /*공지사항*/
+        #popup 
+        {
+            background:  rgb(218, 214, 212);position: absolute;width:500px; height: 400px;
+            left:calc((100% / 2 ) - 250px); top:250px; border-radius: 30px; padding: 30px;
+            box-sizing: border-box; /*padding:만큼 커지지말아라*/ 
+        }
+
+        #popup h3     {border: 1px solid red; position: absolute;bottom:200px;right:220px;}
+        #popup button {padding: 3px 6px; position:absolute; bottom:20px; right:20px;}
+        /*position 하면 margin:auto 안먹힌다.*/
+        
+        /*공지사항2*/
+        #popup1
+        {
+            background: rgb(236, 170, 241); position:absolute;width: 500px; height:400px;
+            left:calc((100% / 2 ) - 250px); top:250px; border-radius: 30px; padding: 30px;
+            box-sizing: border-box; /*padding:만큼 커지지말아라*/ 
+        }
+
+        #popup1 h3 {position:absolute;right:220px;}
+        #popup1 button {position:absolute;bottom:30px;right:250px;}
+
+
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴1</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴1-1</a>
+                        <a href="#">서브메뉴1-2</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴2</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴2-1</a>
+                        <a href="#">서브메뉴2-2</a>
+                        <a href="https://naver.com" target="_blank">서브메뉴2-3</a> <!--target="_blank"하면 내 page는 유지되고 새로운 page나옴-->
+                        <a href="#">서브메뉴2-4</a>
+                        <a href="#">서브메뉴2-5</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴3</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴3-1</a>
+                        <a href="#">서브메뉴3-2</a>
+                        <a href="#">서브메뉴3-3</a>
+                        <a href="#">서브메뉴3-4</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴4</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴4-1</a>
+                        <a href="#">서브메뉴4-2</a>
+                        <a href="#">서브메뉴4-3</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴5</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴5-1</a>
+                        <a href="#">서브메뉴5-2</a>
+                        <a href="#">서브메뉴5-3</a>
+                         </nav>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <img src="images/sun.jpg" alt="여름">
+        </main>
+        <footer onclick="ff()"></footer>
+        <section id="popup">
+            <h3>공지사항</h3>
+            <button type="button" onclick="dot()">닫기</button>
+        </section>
+        <div id="popup1">
+            <h3>공지사항2</h3>
+            <button type="button" onclick="dot2()">닫기</button>
+        </div>
+    </div>
+    <script>
+        const $button = document.querySelector('#popup button');
+        //alert( $button);
+        function dot()
+        {
+             document.querySelector('#popup').style.display = 'none'
+        }
+        function dot2()
+        {
+             document.querySelector('#popup1').style.display = 'none'
+        }
+        function ff()
+        {
+             document.querySelector('#popup').style.display = 'block'
+        }
+       
+    </script>
+</body>
+</html>

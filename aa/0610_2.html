@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in문, of문, Each문</title>
+</head>
+<body>
+    <ol>
+        <li>2500원</li>
+        <li>4700원</li>
+        <li>3300원</li>
+        <li>5200원</li>
+    </ol>
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        let x = document.querySelector('footer');
+       /* let city_1 = document.querySelectorAll('li');
+        for(let i in city_1) //in은 인덱스 번호를 가지고 온다.
+        {
+           //console.log(i); //[0,1,2,3] 이 뜬다.
+         // x.innerHTML += "<br>" + i;
+        }
+        
+        let x1= '';
+        for(let i of city_1) //of는 그대로 가지고 온다.
+        {
+            
+           x1 +=i.innerHTML + "<br>"; //서울,대구,대전,부산이 뜬다.
+        }
+        x.innerHTML = x1;*/
+
+        // for Each문//
+        let xx = document.querySelectorAll('li');
+        
+   
+        let z =0;
+        xx.forEach(function(i) //i는 1,2,3 배열값, j는 0,1,2(index 번호),r은 [1,2,3]배열자신이 나옴
+        {
+            // 숫자 + 문자 조합이면 문자를 삭제하고 숫자를 넘버형으로 변환 하는 건 parseInt 이다.
+           let  yy = parseInt(i.innerHTML);
+           //return z += yy.innerHTML;
+            z += yy;
+            //console.log(i);
+            //console.log(i.innerHTML);
+           x.innerHTML = "<br>" + z + "원입니다.";
+
+        });
+
+    </script>
+</body>
+</html>

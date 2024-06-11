@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in문, of문, Each문</title>
+</head>
+<body>
+    <ol>
+        <li>서울</li>
+        <li>대구</li>
+        <li>대전</li>
+        <li>부산</li>
+    </ol>
+    <footer>결과 표시하는 곳</footer>
+    <script>
+        let x = document.querySelector('footer');
+       /* let city_1 = document.querySelectorAll('li');
+        for(let i in city_1) //in은 인덱스 번호를 가지고 온다.
+        {
+           //console.log(i); //[0,1,2,3] 이 뜬다.
+         // x.innerHTML += "<br>" + i;
+        }
+        
+        let x1= '';
+        for(let i of city_1) //of는 그대로 가지고 온다.
+        {
+            
+           x1 +=i.innerHTML + "<br>"; //서울,대구,대전,부산이 뜬다.
+        }
+        x.innerHTML = x1;*/
+
+        // for Each문//
+        let num = ['딸기','수박','참외'];
+        num.forEach(function(i,j,r) //i는 1,2,3 배열값, j는 0,1,2(index 번호),r은 [1,2,3]배열자신이 나옴
+        {
+            console.log(j);
+            x.innerHTML += i;
+        
+        });
+
+    </script>
+</body>
+</html>

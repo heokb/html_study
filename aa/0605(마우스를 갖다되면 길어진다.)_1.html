@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>둥근테두리, 부채꼴모양 만들기</title>
+    <style>
+        #ra h2 {
+            display: none;
+        }
+
+        #ra {
+            max-width: 1400px;
+            margin: auto;
+            border: 1px solid violet;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #ra div {
+            width: 200px;
+            height: 200px;
+            background: plum;
+            margin: 10px;
+        }
+
+        #ra div:nth-child(2) {
+            background: pink;
+            border-radius: 50%;
+        }
+
+        /*h2가 있어서 div가 2번째가 첫번째 블록이다*/
+        #ra div:nth-child(3) {
+            background: rgb(252, 217, 223);
+            width: 400px;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 200px;
+            top: 0;
+            position: relative;
+            transition: 0.5s;
+            /* 여길 정해주고 해야함*/
+        }
+
+        #ra div:nth-child(4) {
+            background: rgb(252, 217, 223);
+            border-top-left-radius: 200px;
+        }
+
+        #ra div:nth-child(5) {
+            background: rgb(252, 217, 223);
+            width: 400px;
+            border-radius: 80px 20px;
+            /*border-top-left-radius: 80px; border-bottom-right-radius: 80px;
+            왼쪽 위부터 80px 오른쪽 20px 아래 오른쪽 80px 아래 왼쪽 20px 이라는 뜻
+            */
+        }
+
+        /*====================================마우스호버 애니부분=====================================*/
+        #xx {
+            display: block;
+        }
+
+        #xx h2 {
+            display: block;
+            margin-left: 10px;
+        }
+
+        #xx a {
+            display: block;
+            background: rgb(205, 187, 223);
+            padding: 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            width: 500px;
+            transition: 0.5s;
+        }
+
+        /*inline 레벨이라 일자로 정렬 밖에 안되서 block레벨로 변경*/
+
+        #xx a:hover {
+            width: 1000px;
+            color: red;
+            background-color: rgb(178, 118, 238);
+        }
+
+        /*=====================================마우스호버시 이동========================================*/
+        #move {
+            border: 5px solid skyblue;
+        }
+
+        #move .pa {
+            height: 100px;
+            border: 1px solid red;
+            margin: 10px;
+        }
+
+        #move .pa>div {
+            width: 200px;
+            height: 100%;
+            background: url(images/dog.png) no-repeat;
+            position: relative;
+            /*좌표를 움직이는 거라 포지셔닝을 해줬다*/
+            left: 0;
+            transition: 0.5s;
+        }
+
+        #move .pa:hover div {
+            left: 500px;
+        }
+
+        /*길어지는 건 CSS로만 가능하고 위치를 이동하려면 준비가 되어있어야만 가능하다
+          포지셔닝이 되어있어야함
+        */
+
+        /*==========================js로 호버 이동구현=======================================*/
+        #move div {
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-bottom: 10px;
+            transition: 0.4s;
+        }
+
+
+        #move div:hover {
+            transform: translate(100%);
+        } /*이동효과이다*/
+    </style>
+</head>
+
+<body>
+    <section id="move">
+        <h2>마우스호버시 이동하기</h2>
+        <div></div>
+        <div></div>
+    </section>
+    <section id="ra">
+        <h2>반달이나 부채꼴모양 만들기</h2>
+        <div></div><!--div 태그는 안에 글씨를 못씀-->
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <section id="xx"> <!--section은 heading 태그를 꼭 써야함-->
+        <h2>마우스호버 애니메이션</h2>
+        <nav>
+            <a href="https://naver.com" target="_blank">Company</a> <!--target="_blank"는 새창이 열리는것-->
+            <a href="https://apple.com" target="_blank">Product</a>
+            <a href="https://adobe.com" target="_blank">Service</a>
+            <a href="https://google.com" target="_blank">Customer Support</a>
+            <a href="https://microsoft.com" target="_blank">Community</a>
+        </nav>
+    </section>
+    <script>
+
+    </script>
+</body>
+
+</html>

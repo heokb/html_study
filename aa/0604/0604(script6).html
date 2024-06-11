@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교재 P.344 switch문 작성</title>
+</head>
+<body>
+    <h3>이곳에 확정이 표시되게 하세요</h3>
+    <script>
+        let s = prompt('수강과목은?' ,'');
+        s = s.toUpperCase(); //소문자로 입력을 해도 대문자로 변경해줌
+        if(s =="자바스크립트") {
+            s= "JAVASCRIPT";
+        }
+        switch(s){
+            case 'HTML' :   
+                    s += '은 1학점입니다.';
+                    break;
+            case 'CSS' :
+                    s += '는 2학점입니다.';
+                    break;
+            case 'JAVASCRIPT' :
+                    s += '는 3학점입니다.';
+                    break;
+            default : 
+                    s = "해당 과목은 없습니다.";
+        }
+        //alert( s );
+        document.querySelector('h3').innerHTML = s;
+
+
+
+
+    /*    let a = document.querySelector('h3');
+        let x = prompt('아동, 청소년, 성인 중 선택 입력:','');
+      //  x = toUpperCase(x);
+      if(x == '자바스크립트')//한글을 영어로 표시하는 if문?
+      {
+         x="JAVASCRIPT";
+      }
+        switch(x)
+        {
+            case '아동':
+                x += ':입장료 무료'; break;
+            case '청소년':
+                x += ':입장료 2,000원'; break;
+            case '성인':
+                x += ':입장료 5,000원'; break;
+            default:
+                x = '입력 값을 다시 확인하세요';        
+        }
+        a.innerHTML = x;*/
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력된 폼 값을 하단요소에 표시하기</title>
+    <style>
+        
+       /*block 레벨은 초기값이 width:100%라 화면 가득찬다 즉 legend는 inline레벨이다*/
+        body {display: flex; justify-content: space-around;}
+       form {max-width: 300px;margin: auto;flex:2;}
+       /*
+       width:100%라 max-width만 해도 된다. inline레벨은 max-width안됨 그래서 width:100%를 하고
+       해야한다.!!
+       */
+       fieldset 
+       {
+        border:2px dashed skyblue;border-radius: 20px;box-shadow:5px 5px 4px;
+        background: rgb(156, 224, 215); background-image:url(images/zang.jpg);
+
+       }
+       legend 
+       {
+        text-align: center;padding:0 10px; font-weight: bolder; font-size:1.2rem;
+        color:rgb(243, 70, 220);
+       }
+       input {float:right; margin-right: 10px;} /*float는 가장빠르게 왼쪽,오른쪽 이동하는 법*/
+       footer 
+       {
+        text-align:center;height:70vh;border: 1px solid red;flex:1; margin: auto;
+        border-radius: 20px; background-image: url(images/mo.jpg); 
+       }
+       footer img {}
+       span {float: right;border: 1px solid red;text-align:right}
+
+       #zzz {display: none;}
+    </style>
+</head>
+<body>
+    
+    <form action="#" method="post"> <!--get(보안없음),post(보안강화)-->
+        <fieldset>
+        <legend>개인정보</legend>
+        <p><label for="id">ID</label>:<input type="text" placeholder="ID:" required id="id"></p><!--p태그가 블록레벨이라 알아서 띄어쓰기됌-->
+        <p><label for="pw">PW<input type="password" placeholder="PW:" required id="pw"></label></p>
+        <!--
+           1) required는 ID나 PW를 입력안하고 확인하면 입력하라고 뜨는 코딩
+           2) for의 아이디와 뒤에 id가 같으면 ID 만눌러서 커서가 깜빡인다.
+        
+        -->
+        <p><label for="sc">검색</label> <input type="search" id="sc"></p>
+        <p><label for="em">e-mail</label> <input type="email" id="em"></p>
+        <p><label for="co">선호색상</label> <input type="color" id="co"></p>
+        <p><label for="ma">만족도</label> <input type="range" id="ma"></p>
+        <p>
+            수신여부
+            <span>
+            <input type="radio" id="y" name="yy" value="yes"><label for="y">예</label><br>
+            <input type="radio" id="n" name="yy" value="no"><label for="n">아니요</label>
+            <input type="radio" id="zzz" name="yy" value="dddd" checked="checked"><br>
+            </span>
+        </p><br>
+                                            
+        <p><label for="ho">취미2개</label> <input type="checkbox" id="ho"></p>
+        <p><button type="button">확인</button></p>
+        </fieldset>
+    </form>
+    <footer></footer>
+    <script>
+        let ok = document.querySelector('button');
+        ok.addEventListener('click',vv);
+        let ft = document.querySelector('footer');
+        let x1 = document.querySelector('#id');
+        let x2 = document.querySelector('#pw');
+        let x3 = document.querySelector('#sc');
+        let x4 = document.querySelector('#em');
+        let x5 = document.querySelector('#co');
+        let x6 = document.querySelector('#ma');
+       // let x7 = document.querySelector("input[name='yy']");//input태그에 name속성을 찾아라
+        
+        
+        function vv()//ID 안에 입력은 innerHTML이 안되서 value를 넣음
+        {
+            let x7 = document.querySelector("input[name='yy']:checked");
+           // alert(c.value);
+           ft.innerHTML = 
+           x1.value + "<br>" + x2.value + "<br>" + x3.value +
+           "<br>" + x4.value + "<br>" + x5.value + "<br>" + x6.value +
+           "<br>" + x7.value; 
+          
+        }
+
+        
+
+
+
+    </script>
+    
+</body>
+</html>

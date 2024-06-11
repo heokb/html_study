@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0610 복습</title>
+</head>
+<body>
+    <section>
+    <h3>선호 음식 유형</h3>
+    <select>
+        <option>선택하세요:</option>
+        <option>한식</option>
+        <option>양식</option>
+        <option>퓨전음식</option>
+    </select>
+    <p>여기로 넣어주세요</p>
+    </section>
+    <script>
+        let x=document.querySelector('p');
+        let y = document.querySelector('select');
+                y.addEventListener('change',()=>ck());
+
+        ck = () =>
+        {
+    
+            let y1 = y.selectedIndex;
+            switch(y1)
+            {
+                case 1:
+                    y1 = "한식을 선택하셨네요?"; break;
+                case 2:
+                    y1 = "양식을 선택했네요?"; break;
+                default :
+                    y1 = "퓨전음식 맛있죠?" ;                   
+            }
+            x.innerHTML = y1;
+        }        
+        
+        
+    </script>
+</body>
+</html>

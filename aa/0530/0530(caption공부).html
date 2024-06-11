@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표만들기</title>
+
+    <style>
+        table 
+        {
+            width:100%; max-width:600px; border-collapse: collapse;margin: auto;
+            
+        }
+
+        caption {font-size: 1.3rem;padding-bottom:10px;text-align: left;}/*30%정도가 커짐*/
+
+        th,td {border:1px solid black; text-align: center; padding: 5px;}
+
+        /*tbody tr :nth-child(2) {text-align: center;}/*2만원만 가운데 정렬*/
+        /*tfoot tr :nth-child(2) {text-align: center;}/*3만원만 가운데 정렬*/
+
+      /*  tr td:first-of-type {text-align: center;}*/
+        
+    </style>
+</head>
+<body>
+    <table>
+        <caption>상품에 따른 상하반기 판매량</caption>
+        <colgroup>
+            <col style="background-color: aquamarine;">
+            <col style="background-color: rgb(140, 127, 255);">
+            <col style="background-color: rgb(240, 127, 255);">
+        </colgroup>
+        <thead>
+            <tr>
+                 <th>구분</th>
+                 <th>데스크탑PC</th>
+                 <th>스마트폰</th>
+             </tr>
+        </thead>
+        <tbody>
+            <tr>
+                 <th>상반기 판매수</th>
+                 <td>2만대</td>
+                 <td>5만대</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+                 <th>하반기 판매수</th>
+                 <td>3만대</td>
+                 <td>7만대</td>
+        </tr>
+        </tfoot>
+    </table>
+    
+</body>
+</html>

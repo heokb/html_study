@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펼친메뉴를 이용한 값 전송하기</title>
+    <style>
+        body {width: 400px;text-align: center;}
+        h3 
+        {
+            border: 10px dashed skyblue;width: 200px;text-align: center;
+            border-radius: 20px; margin: auto;
+
+        }
+        #ba,#fr {border-radius: 20px;margin-top: 20px;background: palegoldenrod;}
+        p 
+        {
+            background: rgb(189, 219, 231); width: 200px;margin: auto;
+            margin-top: 20px;margin-bottom: 10px;border-top-left-radius: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3>야구장 입장료</h3>
+    <select id="ba">
+        <option>선택하세요:</option>
+        <option value="1">아동</option>
+        <option value="2">청소년</option>
+        <option value="3">성인</option>
+    </select>
+    <p>111</p>
+    <h3>과일선택</h3>
+    <select id="fr">
+        <option>선택하세요:</option>
+        <option>사과</option>
+        <option>딸기</option>
+        <option>파인애플</option>
+    </select>
+    <p>111</p>
+    <script>
+        let x = document.querySelector('#ba');
+            x.addEventListener('change',()=>zz());
+          
+        let a = document.querySelector('#fr');
+                a.addEventListener('change',()=>cc());    
+
+        let xx =document.querySelectorAll('p');
+
+            zz = () =>
+            {
+             //   alert(x.value);
+             let y = x.value;
+             switch(y)
+             {
+                case '1': 
+                y='아동은 무료입니다.'; break;
+                case '2': 
+                y='청소년은 2000원입니다.'; break;
+                default : 
+                y='성인은 3000원입니다.'; break;    
+             }
+                xx[0].innerHTML = y;
+            }
+
+            cc = () =>
+            {
+                //alert(a.selectedIndex); //[1,2,3]
+                let a2 = a.selectedIndex; // HTML에서 value 값 없이 하는 법
+                switch(a2)
+             {
+                case 1: 
+                a2='사과는 2000원입니다.'; break;
+                case 2: 
+                a2='딸기는 프리입니다.'; break;
+                default : 
+                a2='파인애플 50000원입니다.';    
+             }
+             xx[1].innerHTML = a2;
+ 
+            }
+    </script>
+</body>
+</html>

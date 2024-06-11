@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교재 216 윈도우 넓이 감지하기</title>
+    <style>
+        div
+        {
+            width: 200px;background-color: pink;padding:10px;
+            border-radius: 20px; position: relative; left: 0;
+            transition: 2s;
+        }
+        div.move {left: 1000px;}
+    </style>
+</head>
+<body>
+    <h3>현재의 윈도 넓이는?</h3>
+    <p>윈도넓이 표시하는 곳</p>
+    <div>윈도 넓이가 500보다 작아지면
+    이부분은 오른쪽으로 사라진다.</div>
+    
+    <script>
+        let x1 = document.querySelector('p');
+        let x = document.querySelector('div');
+           // x. addEventListener('mouseenter',()=>x.classList.add('move'));
+           // x. addEventListener('mouseleave',()=>x.classList.remove('move'));
+        
+        window.addEventListener('resize', ()=>ck());
+
+        ck = () =>
+        {
+            //console.log(window.innerWidth);
+            let a = window.innerWidth; //window.pageYOffset 이랑 같이 넓이를 수치로 표시
+            if(a>500)
+            {
+                x.classList.add('move');
+            }
+            else
+            {
+                x.classList.remove('move');
+            }
+        }
+    </script>
+</body>
+</html>

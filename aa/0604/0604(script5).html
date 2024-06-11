@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>이곳에 결과를 표시:</p>
+    <aside>교재342페이지 실험결과를 표시하는 곳!</aside>
+    
+    <script>
+        let x = document.querySelector('p');
+        let as = document.querySelector('aside');
+
+       let x1=['딸기','사과','수박'];
+
+        let y= prompt('오늘은 딸기 사과 수박이 준비되었습니다. 무엇을 드릴까요?');
+        let y1 = 0;
+        if(x1[0]==y)
+        {
+            y1='2500원 결제를 도와드리겠습니다';
+        }
+        else if(x1[1]==y)
+        {
+            y1='3000원 결제를 도와드리겠습니다';
+        }
+        else if(x1[2]==y)
+        {
+            y1='3500원 결제를 도와드리겠습니다';
+        }
+        else 
+        {
+            y1='꺼져';
+        }
+        
+
+        let a = prompt('현재 얼마 있습니까?');
+        let a1 = 0;
+        if(a < 2500 && a > 2000)
+        {
+            a1 ="딸기 드릴게요";
+        }
+        else if(a >=2500 && a<3000)
+        {
+            a1 = "포도 드릴게요";
+        }
+        else if(a >=3000 && a<9900 )
+        {
+            a1 = '수박 드릴게요';
+        }
+        else
+        {
+            a1 ='이거 다드릴게요';
+        }
+        x.innerHTML = y1;
+        as.innerHTML = a1;
+    </script>
+    
+</body>
+</html>

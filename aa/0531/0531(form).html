@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 만들기</title>
+    <style>
+       /*block 레벨은 초기값이 width:100%라 화면 가득찬다 즉 legend는 inline레벨이다*/
+
+       form {max-width: 300px;margin: auto;}
+       /*
+       width:100%라 max-width만 해도 된다. inline레벨은 max-width안됨 그래서 width:100%를 하고
+       해야한다.!!
+       */
+       fieldset 
+       {
+        border:2px dashed skyblue;border-radius: 20px;box-shadow:5px 5px 4px;
+        background: rgb(156, 224, 215); 
+       }
+       legend 
+       {
+        text-align: center;padding:0 10px; font-weight: bolder; font-size:1.2rem;
+        color:rgb(243, 70, 220);
+       }
+       input {float:right; margin-right: 10px;} /*float는 가장빠르게 왼쪽,오른쪽 이동하는 법*/
+       footer {}
+    </style>
+</head>
+<body>
+    
+    <form action="#" method="post"> <!--get(보안없음),post(보안강화)-->
+        <fieldset>
+        <legend>로그인</legend>
+        <p>ID:<input type="text" placeholder="ID:" required></p><!--p태그가 블록레벨이라 알아서 띄어쓰기됌-->
+        <p>PW:<input type="password" placeholder="PW:" required></p>
+        <!--required는 ID나 PW를 입력안하고 확인하면 입력하라고 뜨는 코딩-->
+        <p><button type="button">확인</button></p>
+        </fieldset>
+    </form>
+    <footer>아이디</footer>
+    <script>
+        let ok = document.querySelector('button');
+        ok.addEventListener('click',vv);
+        let ft = document.querySelector('footer');
+        let c = document.querySelector('input');
+        let z = document.querySelectorAll('input');
+        
+
+        function vv()
+        {
+           // alert(c.value);
+           ft.innerHTML = c.value + "<br>" + z[1].value;; //ID 안에 입력은 innerHTML이 안되서 value를 넣음
+          
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
