@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상단메뉴(메인/하위메뉴) 만들기</title>
+    <style>
+       
+       img {max-width:100%};
+
+        #layout {max-width:900px; margin:auto; border:1px solid red;}
+        header {height:100px;background: saddlebrown;border:1px solid greenyellow;}
+        main {height:70vh;background: darkkhaki;border:1px solid darkblue;} /*100%중에 70%을 잡아 먹는다*/
+        footer {height:100px;background: seagreen;border:1px solid deeppink;}
+        
+
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴1</a>
+                        <img src="images/sommer.jpg" alt="여름">
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴1-1</a>
+                        <a href="#">서브메뉴1-2</a>
+                        <a href="#">서브메뉴1-3</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴2</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴2-1</a>
+                        <a href="#">서브메뉴2-2</a>
+                        <a href="#">서브메뉴2-3</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴3</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴3-1</a>
+                        <a href="#">서브메뉴3-2</a>
+                        <a href="#">서브메뉴3-3</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴4</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴4-1</a>
+                        <a href="#">서브메뉴4-2</a>
+                        <a href="#">서브메뉴4-3</a>
+                         </nav>
+                    </li>
+                    <li>
+                        <a href="#" class="mainMenu">메뉴5</a>
+                        <nav class="subMenu">
+                        <a href="#">서브메뉴5-1</a>
+                        <a href="#">서브메뉴5-2</a>
+                        <a href="#">서브메뉴5-3</a>
+                         </nav>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main></main>
+        <footer></footer>
+    </div>
+</body>
+</html>

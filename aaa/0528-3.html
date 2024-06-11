@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하위메뉴가 위에서 아래로 내려오는 효과</title>
+    <style>
+        * {margin:0;padding:0;}
+        body {margin-top: 20px;}
+        nav {max-width:900px;margin:auto;border:1px solid red;}
+        nav>ul {display: flex;justify-content: space-around;} 
+        /*nav의 자식 ul만 적용, li의 안에 있는 ul은 미적용하라는 
+         교재 P.286아래 도표부분
+         1)justify-content: space-around; 는 비어있는 나머지 공간을 1:2:1:2:1로 맞춘다
+         2)justify-content: space-evenly; 는 비어있는 나머지 공간을 1:1:1:1:1로 맞춘다  
+         3)     
+        */ 
+
+        nav>ul>li {border:1px solid orange;list-style-position: inside;flex-basis:20%;
+                   background: skyblue; text-align: center;
+        }
+        /*nav>ul>li 해석-> nav 요소의 자식요소 중에서 ul을 찾고 그 ul의 자식요소중에서 li를 찾아서
+        속성을 적용한다. '이때 자손이 아니다 '*/
+
+        /*메인메뉴 .으로 시작(class의 이름으로 스타일 하면 됌 */
+        .mainmenu {background: red;width: 60%;display: inline-block;}
+        .submenu {height:0px; border :1px solid blue;overflow: hidden;transition: 0.5s;}
+
+
+        /*
+        1) overflow:hidden은 오버된 서브 메뉴를 숨긴다 
+        2) 그 아래 hover를 통해서 높이를 100px로 나오게 한다. 그걸 애니메이션 
+        효과로 transition을 넣으면 된다.
+        */
+        
+        /*.mainmenu:hover ~ .submenu{display: block;}*/
+        nav>ul>li:hover .submenu {height: 100px;}
+        .submenu li:hover {background: yellow;} 
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴1</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#" style="color: red;">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴2</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴3</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+        </ul>
+    </nav>
+    <script>
+        alert('지금은\n4교시입니다'); //경고창
+    </script>
+</body>
+</html>

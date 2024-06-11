@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트로 배열(Arrey) 요소에 컨텐츠 넣기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>
+        *       {margin:0; padding:0;}
+        body    {margin-top: 20px;}
+        section {
+            max-width: 900px; margin: auto; border: 2px dashed red; 
+            display: flex; align-items: center;
+            border-radius: 30px; /* transform: rotate(-20deg); */
+            box-shadow: -3px -3px 10px red;
+            transition: 0.5s; background-color: aquamarine;
+        }
+        /* section:hover {transform: rotate( 0 ); cursor: pointer;} */
+        h1      {
+            flex:1; background-color: antiquewhite; padding:30px;
+            font-family: "Do Hyeon", sans-serif;
+            font-weight: 400;
+            font-style: normal
+        }
+        ol      {flex:2; background-color: azure; list-style-position: inside; padding:20px;}
+        p       {flex:1; background-color: pink;}
+    </style>
+</head>
+<body>
+    <section>
+        <h1>반응형 웹퍼블리싱 학습 순서</h1>
+        <ol>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>exercise</li>
+        </ol>
+        <ol>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>exercise</li>
+        </ol>
+        <p>111111</p>
+        <p>111111</p>
+        <p>111111</p>
+    </section>
+
+    <script>
+        //Array 객체를 선언하고 5개의 값을 할당하였다.
+        const myFruits = ['딸기', '포도','수박','오렌지','바나나']; //대괄호 array는 값만있고
+        //console.log( myFruits);//중괄호는 속성이 있다.
+       // console.log( typeof myFruits);
+       // console.log('오늘은 귀가길에 '+ myFruits[1] + '를 살 것이다.');
+
+        document.querySelectorAll('p')[1].innerHTML = myFruits;
+        document.querySelectorAll('p')[2].innerHTML = myFruits[2];
+       // document.querySelector('p:nth-of-type(3)')[2].innerHTML = myFruits[2];
+       
+       for(let i=1; i<5; i++)
+       {
+        x='3px'
+       }
+
+        //로또 추천 번호 생성(배열연습)
+
+        let rotto = [35,44,45,13,7,22];//array(배열)
+        console.log( typeof rotto);
+
+        document.querySelector('p').innerHTML = rotto[3];
+
+
+
+   
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ul태그 스타일링하기</title>
+    <style>
+        * {margin:0;padding:0;}
+        body {margin-top: 20px;}
+        nav {max-width:900px;margin:auto;border:1px solid red;}
+        nav>ul {display: flex;justify-content: space-around;} 
+        /*nav의 자식 ul만 적용, li의 안에 있는 ul은 미적용하라는 
+         교재 P.286아래 도표부분
+         1)justify-content: space-around; 는 비어있는 나머지 공간을 1:2:1:2:1로 맞춘다
+         2)justify-content: space-evenly; 는 비어있는 나머지 공간을 1:1:1:1:1로 맞춘다  
+         3)     
+        */ 
+
+        nav>ul>li {border:1px solid orange;list-style-position: inside;flex-basis:20%;
+                   background: skyblue; text-align: center;
+        }
+        /*nav>ul>li 해석-> nav 요소의 자식요소 중에서 ul을 찾고 그 ul의 자식요소중에서 li를 찾아서
+        속성을 적용한다. '이때 자손이 아니다 '*/
+
+        /*메인메뉴 .으로 시작(class의 이름으로 스타일 하면 됌 */
+        .mainmenu {background: red;width: 60%;display: inline-block;}
+        .submenu {/*display: none;*/opacity:0;} /*{display: none;}화면에 표시하지 않겠다라는 뜻*/
+
+        /*메인메뉴에 마우스를 대면 서브메뉴가 보인다 메뉴와 서브는 형제라 +라표시 ~은 모든 형제
+        1) +는 형제 1명
+        2) ~은 형제 모두
+        3) opacity - 1은 불투명,0은 투명 display:none 과 차이점은 display는 아예사라지고
+        opacity는 요소가 그대로 살아 있어 투명상태이다.
+        */
+        
+        /*.mainmenu:hover ~ .submenu{display: block;}*/
+        nav>ul>li:hover .submenu {/*display: block;*/opacity:1;}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴1</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴2</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴3</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+</html>

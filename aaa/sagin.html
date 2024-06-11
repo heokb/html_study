@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 가운데에 넣기</title>
+
+    <style>
+      
+        img {width:100%;}
+        #aaa {max-width:900px;min-height:700px;margin:auto;
+         border:1px solid red; 
+            background:rgba(184, 227, 235);display: flex;}
+        #aaa:hover {background:rgba(184, 227, 235,0.5); transition:0.5s;}
+        nav {margin: auto;}
+
+        @media(max-width:600px)
+        {
+            #aaa {flex-direction: column;}
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="aaa">
+        <nav>
+            <img src="images/mo.jpg" alt="구름">
+        </nav> 
+    </div>
+</body>
+</html>

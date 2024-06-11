@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index 연습하기</title>
+    <style>
+        * {margin:0;padding:0;}
+        body {margin-top: 20px;}
+        nav {width:900px;/*margin:auto;*/border:1px solid red; height: 200px;
+            position: absolute; z-index: 1; left: calc((100% / 2) - 450px);
+            background: yellow; 
+        }
+        /*nav가 position: absolute; 되면 <div>가 위로 올라온다. 그러면 <nav>가
+            아래 깔린다. 위로 뜰려고 했는데 왜 깔리냐? 마크업 순서 때문이다. 우선순위가
+            div가 우선이라 그렇다 그래서 z-index를 하면 위로 올라온다.*/
+
+
+
+
+        nav>ul {display: flex;justify-content: space-around;} 
+        /*nav의 자식 ul만 적용, li의 안에 있는 ul은 미적용하라는 
+         교재 P.286아래 도표부분
+         1)justify-content: space-around; 는 비어있는 나머지 공간을 1:2:1:2:1로 맞춘다
+         2)justify-content: space-evenly; 는 비어있는 나머지 공간을 1:1:1:1:1로 맞춘다  
+         3)     
+        */ 
+
+        nav>ul>li {border:1px solid orange;list-style-position: inside;flex-basis:20%;
+                   background: skyblue; text-align: center; height: 50px;
+                   position: relative;/*하위메뉴 위치설정 때문*/
+        }
+        /*nav>ul>li 해석-> nav 요소의 자식요소 중에서 ul을 찾고 그 ul의 자식요소중에서 li를 찾아서
+        속성을 적용한다. '이때 자손이 아니다 '*/
+
+        /*메인메뉴 .으로 시작(class의 이름으로 스타일 하면 됌 */
+        .mainmenu {background: red;width: 60%;display: inline-block;}
+        .submenu {/*height:0px;*/ border :1px solid blue;
+            overflow: hidden;transition: 0.5s;position: absolute;
+            z-index: 0; /*밑에 깔려 있는걸 위로 올리는 기능*/
+            width: 100%; /*absolute때문에 넓이가 죽은걸 살렸다*/
+            background: rgba(255,255,255,0.8); padding-top:30px;
+            line-height: 200%; /*줄 간격*/
+            
+        }
+
+
+        /*z-index 연습부분*/
+        nav>ul>li:nth-child(1) {z-index: 1;}
+        nav>ul>li:nth-child(2) {z-index: 1;}
+
+
+
+
+
+        /*
+        1) overflow:hidden은 오버된 서브 메뉴를 숨긴다 
+        2) 그 아래 hover를 통해서 높이를 100px로 나오게 한다. 그걸 애니메이션 
+        효과로 transition을 넣으면 된다.
+        */
+        
+        /*.mainmenu:hover ~ .submenu{display: block;}*/
+        nav>ul>li:hover .submenu {/*height: 100px;*/}
+        .submenu li:hover {background: yellow;} 
+
+        /*공지사항 팝업*/
+        div {border:5px dashed tomato; max-width:900px; margin: auto;height: 80vh;
+            position: relative; background: purple;
+        }
+        
+        #popup {background: greenyellow;width: 300px; padding:50px;margin:auto;
+                min-height: 40vh; /*교재 p246 */ position:absolute; 
+                /*left:calc( 550px / 2);*/ box-sizing: border-box;/*width 의 기준을 맞춰줌*/ 
+                border:2px solid rebeccapurple; left:calc(( 100% / 2 ) - 150px);
+                top:50px; border-radius: 20px; box-shadow: 0 0 5px;
+        } 
+        /*-position:absolute는 margin:auto가 안먹힌다.
+          -calc()함수는 연산해주는거 그래서 가운데를 맞춤을 하려면 전체 크기 900px의 반
+          450px /2 를 하면 가운데로 온다. border-box하면 패딩 50을 줘서 오른쪽 왼쪽
+          50+50 해서 450+100 하면 550/2 를 하면된다.
+          다른방법:전체크기 100%에서 나누기 2하고 popup 넓이 300px의 절반 - 150px을 한다.
+          여기서 -는 150px를 빼는게 아니라 이동한다. 라는 뜻이다.
+          */
+        
+        #popup button {padding:3px 6px; position:absolute; 
+                        bottom:20px; right: 20px;
+                      }
+            
+        div button {padding: 20px;position: absolute; bottom:20px;right:20px;}            
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴1</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#" style="color: red;">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴2</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+            <li>
+                <!--메인메뉴-->
+                <a href="#" class="mainmenu">메뉴3</a>
+                <!-- 서브메뉴:시작 -->
+                <ul class="submenu">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li><a href="#">메뉴1-2</a></li>
+                    <li><a href="#">메뉴1-3</a></li>
+                </ul>
+                <!-- 서브메뉴:끝 -->
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <section id="popup"><!--section은 반드시 h가들어가야함-->
+        <h2>공지사항</h2>
+            <button type="button" onclick="close1()"><mark>닫기</mark></button><!--submit으로 하면 서버와 통신한다는 뜻으로 그냥 button으로 한다.-->
+        </section>
+
+        <button type="button" onclick="close2()">눌러주세요</button>
+    </div>
+    <script>
+       function close1() 
+       { 
+            //alert("버튼 클릭함");
+            document.getElementById('popup').style.display = 'none'; //id에 해당하는 popup을 넣어준다.
+
+       }
+       function close2()
+       {
+        //alert("div영역\n입니다!")
+        document.getElementById('popup').style.display = 'block';
+       }
+    </script>
+</body>
+</html>
