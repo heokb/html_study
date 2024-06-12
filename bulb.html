@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전구 불켜고 끄기</title>
+    <style>
+        button {
+            border: 0;
+            width: 200px;
+            height: 100px;
+            font-size:x-large;
+            border-radius: 25%;
+        }
+    </style>
+</head>
+<body>
+    <h1>전구 온오프</h1>
+    <section id="bulb">
+        <h2>전구</h2>
+        <button type="button" onclick="document.getElementById('zz').src='../0612/images/on.gif'">turn on</button>
+        <img src="../0612/images/off.gif" alt="전구" id="zz">
+        <button type="button" onclick="document.getElementById('zz').src='../0612/images/off.gif'">turn off</button>
+    </section>
+
+
+    <h1>강아지 변경</h1>
+    <section id="dog">
+        <h2>강아지</h2>
+        <button type="button" onclick="document.getElementById('ff').src='../0604/images/dog.png'">dog</button>
+        <img src="../0604/images/dog.png" alt="강아지" id="ff">
+        <button type="button" onclick="document.getElementById('ff').src='../0604/images/flower.png'">flower</button>
+    </section>
+</body>
+</html>
