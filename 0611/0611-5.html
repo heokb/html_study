@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval()메소드로 공굴리기</title>
+    <style>
+        #h1 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(pink, red);
+            border-radius: 50%;
+            position: relative;
+        }
+        #h2 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(skyblue, blue);
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="h1"></div>
+    <div id="h2"></div>
+    <footer></footer>
+
+    <script>
+        const $div = document.querySelector("#h1");
+        
+        const $div2 = document.querySelector("#h2");
+        let i = 10; //재할당됨 (++)
+
+        setInterval(() => m(), 10);//0.01초마다 m()함수 호출을 지속한다.
+
+        m = () => {
+            i++;
+            if (i > 500) i = 0;
+            $div.style.left = i + 'px';
+            $div2.style.right = i + 'px';
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체속성 업데이트</title>
+</head>
+<body>
+    <h1>구조분해할당 (Destructoring Assignment)</h1>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        const $p = document.querySelectorAll('p');
+
+        let iu = {
+            name: "아이유",
+            addr: "분당",
+            hair: "검정"
+        };
+
+        // alert (iu.name); //출력 (객체.속성)
+
+        //구조분해할당 (Destructoring Assignment)
+        // let {name, hair} = iu;
+        // alert(name); //"아이유"가 출력됨
+        // $p[2].innerText = name;
+
+
+        // let {name, addr, hair} = iu;
+        // $p[0].innerText = `이름은 ${name} 주소는 ${addr} 머리는 ${hair}`;
+
+
+        let bp = {
+            fri: "갈치",
+            eye: "갈색"
+        };
+
+        let uuu = {...iu, ...bp};
+        // alert (uuu);
+
+        let {name, addr, hair, eye, fri} = uuu;
+        $p[0].innerText = `이름은 ${name} 주소는 ${addr} 머리는 ${hair} 눈은 ${eye} 친구는 ${fri}`;
+   </script>
+</body>
+</html>

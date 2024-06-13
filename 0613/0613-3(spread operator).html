@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전개연산자와 이미지배열</title>
+    <style>
+        h1 {
+            text-align:center;
+            text-shadow: 1px 1px 5px darkgreen;
+        }
+        #imgBox {
+            max-width: 650px;
+            height:500px;
+            margin: auto;
+            border: 1px solid darkcyan;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        #imgBox img {
+            width: 200px;
+            height: 250px;
+        }
+        div button {
+            display: flex;
+            margin: auto;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>spread Operator</h1>
+    <section id="imgBox">
+        <!-- 이곳에 이미지배열이 들어감 -->
+    </section>
+    <div>
+        <button>짝수만 보이기</button>
+        <button>홀수만 보이기</button>
+        <button>모두 보이기</button>
+    </div>
+    
+    <script>
+        let box = document.querySelector('#imgBox');
+        // alert(box);
+
+        const x = ["../0613/images/1.jpg" , "../0613/images/2.jpg"];
+        const y = ["../0613/images/3.jpg" , "../0613/images/4.jpg"];
+        const z = ["../0613/images/5.jpg" , "../0613/images/6.jpg"];
+
+        // box.innerHTML = `<img src= ${x[0]} alt='이미지'>`;
+
+        const xyz = [...x, ...y, ...z];
+        // alert(xy);
+
+        xyz.forEach (i => {
+            // console.log(i);
+            box.innerHTML += "<img src=" + i + " alt='이미지'>";
+            // box.innerHTML += `<img src= ${i} alt='이미지'>`; //``
+        });
+
+
+
+        const $img = document.querySelectorAll("img");
+
+        $img.forEach ((i,j) => {
+             if ( j%2 != 0  ) i.classList.add('c');
+             else i.classList.add('s');
+        });
+
+
+        const $zz = document.querySelectorAll('.c');
+        console.log($zz);
+
+        const $button = document.querySelectorAll('button');
+        
+        $button[0].addEventListener("click", ()=>zza());
+
+        zza = () => {
+            $img.forEach ( i => {
+                if ( i.classList.contains('s')){
+                    i.style.display = 'none';
+                } else {
+                    i.style.display = 'inline';
+                }
+            })
+        };       
+        
+        $button[1].addEventListener("click", ()=>sin());
+
+        sin = () => {
+            $img.forEach ( i => {
+                if ( i.classList.contains('c')){
+                    i.style.display = 'none';
+                } else {
+                    i.style.display = 'inline';
+                }
+            })
+        };       
+
+        $button[2].addEventListener("click", ()=>mo());
+
+        mo = () => {
+            $img.forEach (i => {
+                i.style.display = 'inline';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전구 불켜고 끄기 javascript</title>
+    <style>
+        h1 {
+            max-width: 500px;
+            margin: auto;
+            background-color: bisque;
+            text-align: center;
+        }
+        #dog {
+            max-width: 500px;
+            margin:auto;
+            border: 1px solid darkgoldenrod;
+            text-align: center;
+        }
+        h2 {
+            text-align:center;
+        }
+        #dog img {
+            width:100%
+        }
+    </style>
+</head>
+<body>
+    <h1>강아지 변경</h1>
+    <section id="dog">
+        <h2>강아지</h2>
+        <img src="../0612/images/dog.png" alt="강아지" id="ff">
+        <button type="button">dog</button>
+        <button type="button">flower</button>
+    </section>
+
+    <script>
+        const $img = document.querySelector('#ff');
+        const $btn = document.querySelectorAll('button');
+
+        $btn[0].addEventListener("click" , ()=>dog());
+
+        dog = () => $img.setAttribute('src' , '../0612/images/dog.png');
+
+        
+        $btn[1].addEventListener("click" , ()=>flower());
+
+        flower = () => $img.setAttribute('src' , '../0612/images/flower.png');
+    </script>
+</body>
+</html>

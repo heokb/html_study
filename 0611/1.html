@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true / false을 사용한 공 이동하기</title>
+    <style>
+        p, div {
+            width:100px; height:100px; border-radius: 50%;
+            background-image: radial-gradient( aqua 10%,  dodgerblue);
+            position:relative;
+        }
+        div {
+            position:fixed;
+            left:calc( ( 100% - 100px)  /  2); top:10px;
+            box-shadow:0 0 10px 5px dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <div></div>
+
+    <script>
+        const $p = document.querySelector('p');  //왼쪽이동 공
+        const $div = document.querySelector('div'); //아래이동 공
+        
+        //setInterval( 함수명, 지체시간 );//지체시간 간격을 두고 지속적으로 함수를 호출한다
+        setInterval( ()=>move() , 10);//0.01초 후에 move()라는 함수를 호출한다.       
+
+        let i = 10; //왼쪽 공 위치
+        let j = 10; //아래 쪽 공 위치
+        
+        let sp = 5;  //속도와 관련됨. 숫자를 증가하면 공이 빨라짐       
+
+        let ww = window.innerWidth; //윈도 넓이
+        let pw = $p.offsetWidth;    //p 공의 넓이
+
+        let wh = window.innerHeight;  //윈도 높이
+        let dw = $div.offsetWidth;  //div 공의 넓이
+
+        move = ()=> {   
+            
+            //오른쪽 방향으로 이동
+            i += sp;
+
+            //반대방향으로 리턴
+            if( i + pw >= ww   ||  i <= 0  )    sp  *=  -1;          
+            $p.style.left = i +'px' ;    
+            
+            //아래쪽 방향으로 이동
+            j += sp;
+            //반대방향으로 리턴
+            if( j + dw >= wh   ||  j <= 0  )    sp  *=  -1;
+            $div.style.top = j + 'px';
+        }
+    </script>
+</body>
+</html>

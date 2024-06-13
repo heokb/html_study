@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval()메소드로 공굴리기 되돌아오기</title>
+    <style>
+        div {
+            width:100px; height:100px; background: radial-gradient(pink,red);
+            border-radius: 50%; position: relative;
+        }
+        footer {
+            width:100px; height:100px; background: radial-gradient(aqua, dodgerblue);
+            border-radius:50%; position: absolute; top:10px; left:100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <footer></footer>
+
+    <script>
+        const $div = document.querySelector("div");
+        const $footer = document.querySelector('footer');
+              
+        setInterval( ()=> m() , 10 );//0.01초마다 m()함수 호출을 지속한다.
+
+        let i = 10; //재할당됨 (++) 
+        let x = true;
+        m=()=> {            
+            if(x) {//if문이 true일때 실행되는 구문 ........①
+                i++;                            //........②
+                if(i == 500)  x = false; //i값이 500이 되면 x값은 false가 됨. ......④
+            }
+            else { //if문이 false일때 실행되는 구문
+                i--;                //........⑤
+                if(i ==0) x= true; //i값이 0이 되면 x값은 true가 됨. .......⑥
+            } 
+            $div.style.left = i + "px"; //........③
+            $footer.style.top = i + 'px';
+        }
+    </script>
+</body>
+</html>

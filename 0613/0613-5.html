@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과일값 계산하기</title>
+    <style>
+        input {
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>숫자를 입력받아서 계산하기</h1>
+    <form action="#" method="get">
+        <label for="u">단가</label>
+        <input type="number" id="u" maxlength="5">
+        *
+        <label for="c">갯수</label>
+        <input type="number" id="c" maxlength="5">
+        = 계산할 금액
+        <input type="number" id="r" maxlength="5">
+    </form>
+
+    <script>
+        const $input = document.querySelectorAll('input');   //[0,1,2]
+
+        $input[1].addEventListener("keyup" , (e)=> y(e) );    //enter Event 1.keypress(누르는순간) 2.keyup(눌렀다 떼는순간)
+        
+        y = e => {
+            if ( e.keyCode === 13 ){
+                const x = $input[0].value * $input[1].value;
+                $input[2].value = x;
+            }
+        }
+    </script>
+</body>
+</html>
