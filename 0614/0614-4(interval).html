@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차례대로 숫자가 나타나는 것이 반복 된다.</title>
+    <style>
+        #layout {
+            max-width: 500px;
+            height: 300px;
+            margin: auto;
+            border: 10px solid rgb(171, 159, 121);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="layout">
+        <h1>차례대로 이미지 나타나기</h1>
+        <h2><!--결과 표시되는 곳--></h2>
+
+    </section>
+
+    <script>
+        const $h2 = document.querySelector('h2');
+        
+        //방법1
+        let c = 1;
+        setInterval( () => {
+            $h2.innerHTML += c+ ' ';
+            if( c < 6 )  c++; 
+            else {
+                $h2.innerHTML ='';
+                c = 1;
+            }
+        }, 1000);
+
+
+        // // // //방법2
+        // let x = 0;
+        // setInterval(() => {
+        //     x++
+        //     let y = x % 6;
+        //     $h2.innerHTML = '';
+        //     for (let i = 1; i <= y; i++) {
+        //         $h2.innerHTML += i; 
+        //     }
+
+        // }, 1000)
+            
+
+    </script>
+</body>
+
+</html>

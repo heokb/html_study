@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계절꽃 선택하기</title>
+    <style>
+        #layout {
+            max-width: 650px;
+            margin: auto;
+            border: 1px solid darkgreen;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        h2 {
+            width: 300px;
+            margin: auto;
+            padding: 10px;
+            margin-top: 20px;
+
+        }
+
+        #flower img {
+            width: 300px;
+            margin: 10px;
+        }
+
+        /* #flower img.big {
+            width: 90%;
+        } */
+
+        .big {
+            width: 90% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layout">
+        <div>
+            <button type="button">봄🌱</button>
+            <button type="button">여름🍀</button>
+            <button type="button">가을🍁</button>
+            <button type="button">겨울⛄</button>
+            <button type="button">reset</button>
+        </div>
+        <section id="flower">
+            <h2>계절</h2>
+            <!-- 이미지삽입부분 -->
+        </section>
+    </div>
+    
+
+        <script>
+            const $flower = document.querySelector('#flower');
+            //이미지배열
+            const imgs = ['../0614/images/spring.jpg','images/summer.jpg','images/autumn.jpg','images/winter.jpg'];
+            
+            //이미지배치
+            imgs.forEach(i => {
+                $flower.innerHTML += `<img src=${i} alt='꽃'>`;
+            });
+
+            //버튼클릭 해당이미지만 남기기
+            const $imgs = document.querySelectorAll('img');
+            const $btns = document.querySelectorAll('button');
+            $btns.forEach ( ( i,j ) => {
+                i.addEventListener ("click", ()=> {
+                    $imgs.forEach ( ( x,y ) => {
+                        if (j==y) {
+                            x.style.display = 'inline';
+                            x.classList.add('big');
+                        }
+                        else if (j==4) {   
+                            x.style.display = 'inline';
+                            x.classList.remove('big');
+                        }
+                        else x.style.display = 'none';
+                    });
+                });
+            });
+
+        </script>
+
+
+</body>
+
+</html>

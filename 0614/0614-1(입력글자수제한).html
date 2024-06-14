@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>값 입력받아서 계산하기</title>
+    <style>
+        input {
+            width:100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>계산하기</h1>
+    <form action="#" method="get">
+        <lable for="unit">단가</lable>
+        <input type="number" id="unit" maxlength="5">
+        *
+        <lable for="count">갯수</lable>
+        <input type="number" id="count" maxlength="3">
+        =
+        합계 <input type="number" id="result" readonly> 
+             <!-- 글 입력 방지 html 속성 (readonly;입력금지전송가능,disabled입력금지전송불가) -->
+    </form>
+
+    <script>
+        const $inputs = document.querySelectorAll('input'); //[0,1,2]
+
+        //글자 입력 수 제한하기
+        $inputs.forEach( ccc => {
+            ccc.addEventListener("input" , ()=>{
+                if ( ccc.value.length > 5  &&  ccc.id == "unit" ){
+                alert (55);
+                ccc.value='';  //재할당 (빈칸만들기)
+                } else if ( ccc.value.length > 3 && ccc.id == "count"){
+                alert (33);    
+                }
+            });
+        })
+
+
+        //글 입력 감지해서 입력숫자를 계산하기
+        $inputs[1].addEventListener("keypress" , (e) => y(e) );
+
+        y = e => {
+            if (e.key == 'Enter') {
+                // alert (33);
+                const x = $inputs[0].value * $inputs[1].value;
+                $inputs[2].value = x;
+            }
+        }
+    </script>
+</body>
+
+</html>
